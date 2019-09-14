@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Сергей Малугин](https://up.htmlacademy.ru/javascript/18/user/156314).
-* Наставник: `Неизвестно`.
+* Наставник: Артём Макаров.
 
 ---
 
