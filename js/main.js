@@ -17,11 +17,11 @@ var getRandomElementArray = function (array) {
   for(var i = 0; i < objectCount; i++) {
     var guest = {
     "author": {
-     "avatar": 'img/avatars/user' + randomNumber + '.png',
+     "avatar": 'img/avatars/user0' + randomNumber + '.png',
   },
     "offer": {
      "title": 'Заголовок',
-     "address":  "{{location.x}}, {{location.y}}",
+     "address":  "location.x, location.y",
      "price": Math.floor(Math.random() * objectCount),
      "type": getRandomElementArray(type),
      "rooms": Math.floor(Math.random() * objectCount),
@@ -41,7 +41,17 @@ var getRandomElementArray = function (array) {
     }
 console.log(guest);
 
-var pin = document.getElementById("pin");
+var pools = document.querySelectorAll('.map__pins');
 
-pin.innerHTML  =  pin.innerHTML + '<button type="button" class="map__pin" style="left:' + guest.location.x + 'px; top:' + guest.location.y + 'px;"><img src=' + guest.author.avatar + ' width="40" height="40" draggable="false" alt="Метка объявления"></button>';
+var template = document.querySelector('#pin').content.querySelector('button');
 
+for (var i = 0; i < 6; i++) {
+  var element = template.cloneNode(true);
+  element.children[0].textContent = i;
+  pools[1].appendChild(element);
+}
+
+/*
+pin.innerHTML  =  pin.innerHTML + '<button type="button" class="map__pin" style="left:' + guest.location.x + 'px; top:' + guest.location.y + 'px;"><img src=' + guest.author.avatar + ' width="40" height="40" draggable="false" alt='+ guest.offer.title + '></button>';
+
+*/
